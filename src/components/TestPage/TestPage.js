@@ -98,9 +98,9 @@ class TestPage extends React.Component {
         }
     }
 
-    selectedAnswer(e, qid, ques, ans, score) {
+    selectedAnswer(e, qid, ques, aid, ans) {
         const { user, users } = this.props;
-        this.state.currentValue = [user.username, qid, ques, ans, score];
+        this.state.currentValue = [user.username, qid, ques, aid, ans];
     }
     handleCarouselClick(e) {
 
@@ -199,7 +199,7 @@ class TestPage extends React.Component {
                                                                 {head["Ans"].map((headcol, indexcol) => {
                                                                     return <li key={indexcol}>
                                                                         <label>
-                                                                            <input type="radio" name="answerGroup" value={indexcol} id={indexcol} tabIndex={indexcol} onClick={(e) => this.selectedAnswer(e, head["Id"], head["Ques"], headcol["value"], headcol["score"], index + 1)} />&nbsp;&nbsp;{headcol["value"]}</label>
+                                                                            <input type="radio" name="answerGroup" value={indexcol} id={indexcol} tabIndex={indexcol} onClick={(e) => this.selectedAnswer(e, head["Id"], head["Ques"],headcol["id"],headcol["value"], index + 1)} />&nbsp;&nbsp;{headcol["value"]}</label>
                                                                     </li>
 
                                                                 })}
